@@ -1,0 +1,24 @@
+<html>
+<body>
+<canvas id="webcamElement" width="640" height="480"></canvas>
+<script>
+function refreshWebcamPixels() {
+	let webcamURL = "http://pi-noir-camera.local:8000/webcam.jpg?t=" + (new Date()).getTime();
+	
+	let webcamElement = document.getElementById("webcamElement");
+	let context = webcamElement.getContext("2d");
+	
+	let nextWebcamImage = new Image();
+	nextWebcamImage.onload = function() {
+		context.drawImage(nextWebcamImage, 0, 0);
+	}
+	nextWebcamImage.src = webcamURL;
+}
+
+const interval = setInterval(function() {
+	refreshWebcamPixels()
+}, 1000/30);
+
+</script>
+</body>
+</html>
