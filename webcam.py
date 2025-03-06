@@ -29,7 +29,7 @@ class SimpleCloudFileServer(BaseHTTPServer.BaseHTTPRequestHandler):
 			return "text/html"
 		elif filename.endswith("css"):
 			return "text/css"
-		elif filename.endswith("jpg") or fiename.endswith("jpeg"):
+		elif filename.endswith("jpg") or filename.endswith("jpeg"):
 			return "image/jpeg"
 		elif filename.endswith("png"):
 			return "image/png"
